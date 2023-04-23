@@ -8,7 +8,7 @@ function Flight(props) {
   const [returnDate, setReturnDate] = useState('');
   const [flightOptions, setFlightOptions] = useState([]);
   const [loading, setLoading] = useState(false)
-  const loadingChar = ">";
+  const loadingChar = ".";
   const [dots, setDots] = useState(loadingChar)
   let dotTimerRef;
 
@@ -20,7 +20,7 @@ function Flight(props) {
     setLoading(true);
     dotTimerRef = setInterval(() => {
       setDots((cur) => cur + loadingChar);
-    }, 100)
+    }, 200)
   }
 
   const hideLoading = () => {
