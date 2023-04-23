@@ -5,8 +5,7 @@ function FlightSelect(props) {
   let options2;
   if (props?.flightOptions?.length > 0) {
     options = props.flightOptions.map((flight, index) =>
-      <>
-        <input type="radio" id={flight.id} name="select" value={index}/>
+      <div className="flight-content-item flight-content-item-even form-row ">
         <label htmlFor={flight.id}>
           {"Price: " + flight.price.grandTotal + " " + flight.price.currency}
         </label>
@@ -17,17 +16,18 @@ function FlightSelect(props) {
           One Way?: {flight.oneWay ? "YES" : "NO"}
         </div>
         <br></br>
-      </>
+      </div>
     );
   } else {
-    options2 = <div>No flight options available.</div>;
+    options2 = <div className="app-text">No flight options available.</div>;
   }
 
   return (
-    <div>
+    <div className="flight-content">
       {
         props?.flightOptions?.length > 0 ? (<>
-          <div>Number of {props.flightOptions.length}</div>
+          <div className="header">Number of flyghts: {props.flightOptions.length}</div>
+          <br/>
           <form onChange={(e) => props.setFlight(props.flightOptions[e.target.value])}>
             {options}
           </form>

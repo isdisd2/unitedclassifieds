@@ -10,13 +10,16 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1 className="app-header app-header-text">Flight search example</h1>
-        <div className="app-search"><Locate handleChoice={setDestination} display={"Origin"}/>
-          <Locate handleChoice={setOrigin} display={"Destination"}/></div>
-        {origin && destination &&
-          <Flight origin={origin} destination={destination} setFlight={setFlight}/>
-        }
+      <div className="app app-item">
+        <div className="app-header app-item app-header-text ">Flight search example</div>
+        <div className="app-search app-item search-item">
+          <Locate handleChoice={setDestination} display={"Origin"}/>
+          <Locate handleChoice={setOrigin} display={"Destination"}/>
+        </div>
+        <div className="app-search  app-item search-item">
+          {origin && destination && <Flight origin={origin} destination={destination} setFlight={setFlight}/>
+          }
+        </div>
       </div>
     </>
   )
