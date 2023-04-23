@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FlightSelect from "./FlightSelect";
 import '../assets/app.css';
 
@@ -8,14 +8,36 @@ function Flight(props) {
   const [returnDate, setReturnDate] = useState('');
   const [flightOptions, setFlightOptions] = useState([]);
   const [loading, setLoading] = useState(false)
+  const loadingChar = ">";
+  const [dots, setDots] = useState(loadingChar)
+  let dotTimerRef;
+
+  useEffect(() => {
+    if (dots.length > 8) setDots(() => loadingChar);
+  }, [dots])
+
+  const showLoading = () => {
+    setLoading(true);
+    dotTimerRef = setInterval(() => {
+      setDots((cur) => cur + loadingChar);
+    }, 100)
+  }
+
+  const hideLoading = () => {
+    setLoading(false);
+    clearTimeout(dotTimerRef);
+    setDots(loadingChar)
+  }
 
   let startLoading = (
-    <h3> LOADING... </h3>
+    <h3 className="app-text"> LOADING {dots} </h3>
   )
 
   async function submit(event, props) {
     event.preventDefault();
     let returnDateParam = (returnDate ? "&returnDate=" + returnDate : "");
+    showLoading()
+
     await fetch(
       "http://localhost:8081/flightOffers?originLocationCode=" + props.origin +
       "&destinationLocationCode=" + props.destination +
@@ -24,12 +46,11 @@ function Flight(props) {
       "&max=" + 20 +
       returnDateParam
     )
-      .then(setLoading(true))
       .then((response) => response.json())
       .then((json) => {
         setFlightOptions(json);
-      })
-      .then(setLoading(false));
+      }).finally(() => hideLoading());
+
   }
 
   return (
