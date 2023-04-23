@@ -10,6 +10,8 @@ function TextInput(props) {
         name={props.name}
         value={props.value}
         onChange={props.onChange}
+        onBlur={props.onSubmit}
+        on
       />
       <button type="submit" onClick={props.onSubmit}>OK</button>
     </div>

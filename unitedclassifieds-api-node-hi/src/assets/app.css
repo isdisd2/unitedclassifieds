@@ -86,17 +86,22 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  gap: 2rem;
   color: #222224;
   padding: 2vh;
   margin: 2vh;
   border-radius: 0.8em;
 }
 
-.flight-content-item-even:nth-child(even) {
-  background-color: greenyellow;
+.bold {
+  font-weight: bold;
 }
 
-.flight-content-item-even:nth-child(odd) {
+.flight-content-item-odd-even:nth-child(even) {
+  background-color: lightgreen;
+}
+
+.flight-content-item-odd-even:nth-child(odd) {
   background-color: yellowgreen;
 }
 
@@ -116,7 +121,7 @@
 .form-row {
   display: flex;
   flex-direction: row;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 3px;
 }
 
 input {
@@ -135,6 +140,12 @@ button {
 .button {
   border-radius: 0.25rem;
   background-color: greenyellow;
+  padding: 0.2rem 0.6rem;
+}
+
+.button:hover {
+  border-radius: 0.25rem;
+  background-color: cornflowerblue;
   padding: 0.2rem 0.6rem;
 }
 
@@ -164,5 +175,6 @@ button:hover {
   background-color: darkgoldenrod;
   font-weight: 300;
   padding: 0.5em;
-  width: 50%
+  width: 70%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 3px;
 }

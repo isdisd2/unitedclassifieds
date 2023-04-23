@@ -36,6 +36,7 @@ router.get(`/flightOffers`, async (req, res) => {
   let destinationLocationCode = req.query.destinationLocationCode;
   let departureDate = req.query.departureDate;
   let adults = req.query.adults;
+  let max = req.query.max;
   let returnDate = req.query.returnDate ? req.query.returnDate : "";
   const response = await amadeus.shopping.flightOffersSearch
     .get({
@@ -43,6 +44,7 @@ router.get(`/flightOffers`, async (req, res) => {
       destinationLocationCode: destinationLocationCode,
       departureDate: departureDate,
       adults: adults,
+      max: max,
       returnDate: returnDate,
     })
     .catch((x) => console.log(x));

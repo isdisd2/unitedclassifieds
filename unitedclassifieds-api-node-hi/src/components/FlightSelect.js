@@ -5,15 +5,15 @@ function FlightSelect(props) {
   let options2;
   if (props?.flightOptions?.length > 0) {
     options = props.flightOptions.map((flight, index) =>
-      <div className="flight-content-item flight-content-item-even form-row ">
+      <div className="flight-content-item flight-content-item-odd-even form-row">
         <label htmlFor={flight.id}>
-          {"Price: " + flight.price.grandTotal + " " + flight.price.currency}
+          Price: <span className="bold">{flight.price.grandTotal}</span> {flight.price.currency}
         </label>
         <div>
-          Available Seats: {flight.numberOfBookableSeats}
+          Available Seats: <span className="bold">{flight.numberOfBookableSeats}</span>
         </div>
         <div>
-          One Way?: {flight.oneWay ? "YES" : "NO"}
+          One Way?: <span className="bold">{flight.oneWay ? "YES" : "NO"}</span>
         </div>
         <br></br>
       </div>
@@ -26,7 +26,7 @@ function FlightSelect(props) {
     <div className="flight-content">
       {
         props?.flightOptions?.length > 0 ? (<>
-          <div className="header">Number of flyghts: {props.flightOptions.length}</div>
+          <div className="header">Number of flights: {props.flightOptions.length}</div>
           <br/>
           <form onChange={(e) => props.setFlight(props.flightOptions[e.target.value])}>
             {options}

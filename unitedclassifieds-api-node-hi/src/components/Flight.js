@@ -7,6 +7,11 @@ function Flight(props) {
   const [departureDate, setDepartDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
   const [flightOptions, setFlightOptions] = useState([]);
+  const [loading, setLoading] = useState(false)
+
+  let startLoading = (
+    <h3> LOADING... </h3>
+  )
 
   async function submit(event, props) {
     event.preventDefault();
@@ -16,12 +21,15 @@ function Flight(props) {
       "&destinationLocationCode=" + props.destination +
       "&departureDate=" + departureDate +
       "&adults=" + passengers +
+      "&max=" + 20 +
       returnDateParam
     )
+      .then(setLoading(true))
       .then((response) => response.json())
       .then((json) => {
         setFlightOptions(json);
-      });
+      })
+      .then(setLoading(false));
   }
 
   return (
@@ -48,8 +56,10 @@ function Flight(props) {
                  name="return"/><br></br>
           <input className="button" type="submit"/>
         </form>
+        {loading ? startLoading : ""}
       </div>
       <div>
+
         <FlightSelect flightOptions={flightOptions.data} setFlight={props.setFlight}/>
       </div>
     </div>

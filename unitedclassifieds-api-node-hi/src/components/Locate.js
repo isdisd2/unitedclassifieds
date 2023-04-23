@@ -5,6 +5,7 @@ import LocationSelect from './LocationSelect'
 function Locate(props) {
   const [value, setValue] = useState('');
   const [locations, setLocations] = useState([]);
+
   const submit = async (e) => {
     e.preventDefault();
     await fetch(
