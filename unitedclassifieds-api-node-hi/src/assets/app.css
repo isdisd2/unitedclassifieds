@@ -1,0 +1,105 @@
+
+.app {
+  text-align: center;
+}
+
+
+.app-header {
+  background-color: #222224;
+  min-height: 8vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin: 0
+}
+
+.app-search {
+  background-color: #282c34;
+  min-height: 8vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: white;
+  padding: 4vh;
+}
+
+.search-detail {
+  background-color: #282f44;
+  min-height: 8vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  font-size: calc(10px + 1vmin);
+  color: white;
+  padding: 4vh;
+}
+
+.app-header-text {
+  color: greenyellow;
+}
+
+.app-text {
+  color: orangered;
+}
+
+.radio-search {
+  color: blanchedalmond;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
+}
+
+input {
+  background-color: darkgrey;
+  border: 1px solid #999;
+  padding: 0.2rem 0.6rem;
+}
+
+button {
+  border-radius: 0.25rem;
+  background-color: greenyellow;
+  padding: 0.2rem 0.6rem;
+}
+
+.button {
+  border-radius: 0.25rem;
+  background-color: greenyellow;
+  padding: 0.2rem 0.6rem;
+}
+
+button:hover {
+  background-color: cornflowerblue;
+
+}
+
+.btn-danger {
+  background-color: hotpink;
+}
+
+.btn:focus {
+  background-color: cornflowerblue
+}
+
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-end;
+  align-items: center;
+}
+
+.header {
+  background-color: darkgoldenrod;
+  font-weight: 300;
+}
